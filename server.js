@@ -1,5 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const userProfileRoutes = require("./app/routes/userProfile.routes.js");
+const phoneRoutes = require("./app/routes/phone.routes.js");
+const emailRoutes = require("./app/routes/email.routes.js");
+const addressRoutes = require("./app/routes/address.routes.js");
+const socialRoutes = require("./app/routes/social.routes.js");
+const assistantRoutes = require("./app/routes/assistant.routes.js");
 
 const app = express();
 
@@ -32,8 +38,15 @@ app.get("/", (req, res) => {
 });
 
 // routes
+app.use("/api/userProfile", userProfileRoutes);
+app.use("/api/phone", phoneRoutes);
+app.use("/api/email", emailRoutes);
+app.use("/api/address", addressRoutes);
+app.use("/api/social", socialRoutes);
+app.use("/api/assistant", assistantRoutes);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -46,12 +59,12 @@ function initial() {
     id: 1,
     name: "user"
   });
- 
+
   Role.create({
     id: 2,
     name: "moderator"
   });
- 
+
   Role.create({
     id: 3,
     name: "admin"

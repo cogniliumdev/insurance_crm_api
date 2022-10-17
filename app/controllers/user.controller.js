@@ -1,3 +1,6 @@
+const db = require("../models");
+const User = db.user;
+
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
 };
@@ -13,3 +16,14 @@ exports.adminBoard = (req, res) => {
 exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
+
+exports.moderatorBoard = (req, res) => {
+  try {
+    
+  } catch (error) {
+    console.log(error)
+  }
+  res.status(200).send("Moderator Content.");
+};
+
+
