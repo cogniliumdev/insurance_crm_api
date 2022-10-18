@@ -1,0 +1,12 @@
+# create user Profile 
+post http://localhost:8080/api/userProfile/createProfile
+Content-Type: application/json
+
+{
+    "title":"saad",
+    "company":"cognilium"
+}
+
+###
+# get user profile
+GET http://localhost:8080/api/userProfile/getProfile

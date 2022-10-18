@@ -10,7 +10,7 @@ const createPhone = async (req, res) => {
         }
         await Phone.create({
             phone: phone,
-            userProfileId: userProfileId
+            user_profileId: userProfileId
         });
         return res.status(201).json({ successMsg: "Phone number added" });
     } catch (err) {

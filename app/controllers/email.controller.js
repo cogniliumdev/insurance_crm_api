@@ -10,7 +10,7 @@ const createEmail = async (req, res) => {
         }
         await Email.create({
             email: email,
-            userProfileId: userProfileId
+            user_profileId: userProfileId
         });
         return res.status(201).json({ successMsg: "email added" });
     } catch (err) {

@@ -44,7 +44,7 @@ exports.signin = (req, res) => {
   User.findOne({
     where: {
       email: req.body.email
-    }
+    },
   })
     .then(user => {
       if (!user) {
@@ -77,7 +77,7 @@ exports.signin = (req, res) => {
           username: user.username,
           email: user.email,
           roles: authorities,
-          accessToken: token
+          accessToken: token,
         });
       });
     })

@@ -8,9 +8,10 @@ const createAddress = async (req, res) => {
         if (!address || address.trim().length <= 0) {
             return res.status(400).json({ errorMsg: "must provide address" });
         }
+        console.log(userProfileId);
         await Address.create({
             address: address,
-            userProfileId: userProfileId
+            user_profileId: userProfileId
         });
         return res.status(201).json({ successMsg: "Address added" });
     } catch (err) {
@@ -27,7 +28,7 @@ const updateAddress = async (req, res) => {
         }
         await Address.update(
             { phone: phone },
-            { where: { id: phoneId } }
+            { where: { id: addressId } }
         )
         return res.status(200).json({ successMsg: "Address updated" });
     } catch (err) {

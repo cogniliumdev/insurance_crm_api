@@ -1,5 +1,5 @@
 const db = require("../models");
-const User = db.user;
+const UserProfile = db.userProfile;
 
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
@@ -17,13 +17,26 @@ exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
 
-exports.moderatorBoard = (req, res) => {
+exports.getUserProfile = async (req, res) => {
   try {
-    
-  } catch (error) {
-    console.log(error)
+    const profile = await UserProfile.findOne({
+      where: {
+        // userId: req.userId
+        userId: 2
+      },
+      include: ["phones", "emails", "socials", "addresses"]
+    });
+    if (!profile) {
+      return res.status(500).json({ errorMsg: "No profile found" });
+    }
+    return res.status(200).send(profile);
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ errorMsg: "Server Error" });
   }
-  res.status(200).send("Moderator Content.");
 };
+
+
 
 

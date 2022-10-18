@@ -1,0 +1,25 @@
+# create consumer
+post http://localhost:8080/api/consumerTag/createConsumerTag
+Content-Type: application/json
+
+{
+    "tag":"saad2",
+    "consumerId": 2
+}
+
+###
+
+# update consumer
+PATCH  http://localhost:8080/api/consumerTag/updateConsumerTag
+Content-Type: application/json
+
+{
+    "tag":"saad",
+    "tagId":1
+}
+
+###
+
+# delete consumer
+DELETE  http://localhost:8080/api/consumerTag/deleteConsumerTag/1
+Content-Type: application/json

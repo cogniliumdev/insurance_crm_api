@@ -23,7 +23,7 @@ const getUserProfile = async (req, res) => {
                 // userId: req.userId
                 userId: 2
             },
-            include:["phones", "emails","socials"]
+            include:["phones", "emails","socials", "addresses"]
         })
         if (!profile) {
             return res.status(500).json({ errorMsg: "Server Error" });

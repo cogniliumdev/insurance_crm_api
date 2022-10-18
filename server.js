@@ -5,7 +5,8 @@ const phoneRoutes = require("./app/routes/phone.routes.js");
 const emailRoutes = require("./app/routes/email.routes.js");
 const addressRoutes = require("./app/routes/address.routes.js");
 const socialRoutes = require("./app/routes/social.routes.js");
-const assistantRoutes = require("./app/routes/assistant.routes.js");
+const consumerRoutes = require("./app/routes/consumer.routes.js");
+const consumerTagRoutes = require("./app/routes/consumerTag.routes.js");
 
 const app = express();
 
@@ -43,7 +44,8 @@ app.use("/api/phone", phoneRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/address", addressRoutes);
 app.use("/api/social", socialRoutes);
-app.use("/api/assistant", assistantRoutes);
+app.use("/api/consumer", consumerRoutes);
+app.use("/api/consumerTag", consumerTagRoutes);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 

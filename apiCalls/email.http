@@ -1,0 +1,8 @@
+# create address with userProfile Id
+post http://localhost:8080/api/email/createEmail
+Content-Type: application/json
+
+{
+    "email":"saad3@gmail.com",
+    "userProfileId":2
+}

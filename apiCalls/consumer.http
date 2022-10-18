@@ -1,0 +1,42 @@
+# get all consumers 
+GET http://localhost:8080/api/consumer/getAllConsumer
+
+
+###
+# create consumer 
+post http://localhost:8080/api/consumer/createConsumer
+Content-Type: application/json
+
+{
+    "last_contact": "1999",
+    "tracking_data":"tracking_data",
+    "brand" :"brnd",
+    "lead_type" : "lead_type",
+    "referrer": "referrer",
+    "source": "source",
+    "ip_address": "ip_address",
+    "quoter_url": "quoter_url"
+}
+
+
+###
+# update consumer 
+PATCH  http://localhost:8080/api/consumer/updateConsumer
+Content-Type: application/json
+
+{
+    "last_contact": "19",
+    "tracking_data":"tracking_data",
+    "brand" :"brnd",
+    "lead_type" : "lead_type",
+    "referrer": "referrer",
+    "source": "source",
+    "ip_address": "ip_address",
+    "quoter_url": "quoter_url"
+}
+
+
+###
+# delete consumer with consumer id 
+DELETE  http://localhost:8080/api/consumer/deleteConsumer/2
+Content-Type: application/json

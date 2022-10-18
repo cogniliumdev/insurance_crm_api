@@ -1,0 +1,8 @@
+# create social with userProfile Id
+post http://localhost:8080/api/social/createSocial
+Content-Type: application/json
+
+{
+    "social": "saad",
+    "userprofileId":2
+}

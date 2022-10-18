@@ -1,0 +1,8 @@
+# create address with userProfile Id
+post http://localhost:8080/api/address/createAddress
+Content-Type: application/json
+
+{
+    "address":"sindh",
+    "userProfileId":1
+}

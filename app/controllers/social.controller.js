@@ -10,7 +10,7 @@ const createSocial = async (req, res) => {
         }
         await Social.create({
             social: social,
-            userProfileId: userProfileId
+            user_profileId: userProfileId
         });
         return res.status(201).json({ successMsg: "social added" });
     } catch (err) {
