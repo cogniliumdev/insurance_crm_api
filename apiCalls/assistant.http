@@ -1,0 +1,13 @@
+# create assistant 
+post http://localhost:8080/api/assistant/createAssistant
+Content-Type: application/json
+
+{
+    "name":"numair",
+    "phone":"051851",
+    "email":"numair@gmail.com"
+}
+
+###
+# get assistant
+GET http://localhost:8080/api/assistant/getAssistant

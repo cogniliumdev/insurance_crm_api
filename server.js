@@ -7,6 +7,7 @@ const addressRoutes = require("./app/routes/address.routes.js");
 const socialRoutes = require("./app/routes/social.routes.js");
 const consumerRoutes = require("./app/routes/consumer.routes.js");
 const consumerTagRoutes = require("./app/routes/consumerTag.routes.js");
+const assistantRoutes = require("./app/routes/assistant.routes.js");
 
 const app = express();
 
@@ -14,7 +15,7 @@ var corsOptions = {
   origin: "http://localhost:8081"
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -46,6 +47,7 @@ app.use("/api/address", addressRoutes);
 app.use("/api/social", socialRoutes);
 app.use("/api/consumer", consumerRoutes);
 app.use("/api/consumerTag", consumerTagRoutes);
+app.use("/api/assistant", assistantRoutes);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 

@@ -1,14 +1,14 @@
 const db = require("../models");
-const UserProfile = db.userProfile;
+const Assistant = db.assistant;
 
-const createUserProfile = async (req, res) => {
+const createAssistant = async (req, res) => {
     try {
-        await UserProfile.create({
+        await Assistant.create({
             ...req.body,
             // userId: req.userId
-            userId: 1
+            userId: 2
         });
-        return res.status(201).json({ successMsg: "profile created" });
+        return res.status(201).json({ successMsg: "Assistant created" });
 
     } catch (err) {
         console.log(err)
@@ -16,19 +16,18 @@ const createUserProfile = async (req, res) => {
     }
 }
 
-const getUserProfile = async (req, res) => {
+const getAssistant = async (req, res) => {
     try {
-        const profile = await UserProfile.findOne({
+        const assistant = await Assistant.findOne({
             where: {
                 // userId: req.userId
-                userId: 1
+                userId: 2
             },
-            include:["phones", "emails","socials", "addresses"]
         })
-        if (!profile) {
+        if (!assistant) {
             return res.status(500).json({ errorMsg: "Server Error" });
         }
-        return res.status(200).send(profile);
+        return res.status(200).send(assistant);
 
     } catch (err) {
         console.log(err);
@@ -36,15 +35,15 @@ const getUserProfile = async (req, res) => {
     }
 }
 
-const updateUserProfile = async (req, res) => {
+const updateAssistant = async (req, res) => {
     try {
-        await UserProfile.update(req.body, {
+        await Assistant.update(req.body, {
             where: {
                 // userId: req.userId
                 userId: 2
             }
         });
-        return res.status(200).json({ successMsg: "profile updated successfully" });
+        return res.status(200).json({ successMsg: "assistant updated successfully" });
 
     } catch (err) {
         console.log(err)
@@ -53,7 +52,7 @@ const updateUserProfile = async (req, res) => {
 }
 
 module.exports = {
-    createUserProfile,
-    getUserProfile,
-    updateUserProfile
+    createAssistant,
+    getAssistant,
+    updateAssistant
 };

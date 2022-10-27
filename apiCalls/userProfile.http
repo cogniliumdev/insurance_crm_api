@@ -4,7 +4,17 @@ Content-Type: application/json
 
 {
     "title":"saad",
-    "company":"cognilium"
+    "company":"cognilium",
+    "timezone" : "PST",
+    "SSN" : "164165-5245-65541",
+    "TIN" : "164165-5245-65541",
+    "birth_date" : "1999-28-12",
+    "license_types" : "license_types",
+    "broker_dealer" : "broker_dealer",
+    "relationship_manager": "relationship_manager",
+    "payment_plan" : "payment_plan",
+    "comp_level": "comp_level",
+    "subdomain": "subdomain"
 }
 
 ###

@@ -33,6 +33,7 @@ db.address = require("../models/address.models.js")(sequelize, Sequelize);
 db.social = require("../models/social.model.js")(sequelize, Sequelize);
 db.consumer = require("./consumer.model.js")(sequelize, Sequelize);
 db.consumerTag = require("./consumerTag.model.js")(sequelize, Sequelize);
+db.assistant = require("./assistant.model.js")(sequelize, Sequelize);
 
 
 // Many-to-Many relation/association of User and Role.  
@@ -50,6 +51,10 @@ db.user.belongsToMany(db.role, {
 // One-to-One relation/association of User and UserProfile.  
 db.user.hasOne(db.userProfile, { constraints: false });
 db.user.belongsTo(db.userProfile);
+
+// One-to-One relation/association of User and assistant.  
+db.user.hasOne(db.assistant , { constraints: false });
+db.user.belongsTo(db.assistant);
 
 // One-to-Many relation/association of UserProfile and Phone.
 db.userProfile.hasMany(db.phone, { foreignKey: { name: "user_profileId" }, constraints: false });
@@ -74,6 +79,7 @@ db.consumer.belongsTo(db.user);
 // One-to-Many relation/association of consumer and consumerTag model.
 db.consumer.hasMany(db.consumerTag, { constraints: false });
 db.consumerTag.belongsTo(db.consumer);
+
 
 db.ROLES = ["user", "admin", "moderator"];
 

@@ -10,10 +10,9 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
     }
   }).then(user => {
     if (user) {
-      res.status(400).send({
+      return res.status(400).json({
         message: "Failed! email is already in use!"
       });
-      return;
     }
     next();
 
