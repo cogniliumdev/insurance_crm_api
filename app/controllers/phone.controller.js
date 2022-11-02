@@ -25,10 +25,15 @@ const updatePhone = async (req, res) => {
         if (!phone || phone.trim().length <= 0) {
             return res.status(400).json({ errorMsg: "must provide Phone Number" });
         }
-        await Phone.update(
+        const response = await Phone.update(
             { phone: phone },
             { where: { id: phoneId } }
-        )
+        );
+
+        if (!response[0]) {
+            return res.status(500).json({ errorMsg: "Server Error" });
+        }
+
         return res.status(200).json({ successMsg: "Phone number updated" });
     } catch (err) {
         console.log(err)

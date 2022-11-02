@@ -1,0 +1,23 @@
+# create address with userProfile Id
+post http://localhost:8080/api/phone/createPhone
+Content-Type: application/json
+
+{
+    "phone":"065469849816",
+    "userProfileId":1
+}
+###
+
+PATCH http://localhost:8080/api/phone/updatePhone
+Content-Type: application/json
+
+{
+    "phone": "4", 
+    "phoneId": 4
+}
+
+
+###
+# delete phone with phone id 
+DELETE  http://localhost:8080/api/phone/deletePhone/
+Content-Type: application/json
