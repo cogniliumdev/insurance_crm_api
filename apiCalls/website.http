@@ -1,0 +1,9 @@
+###
+# create address with userProfile Id
+post http://localhost:8080/api/website/createWebsite
+Content-Type: application/json
+
+{
+    "website":"065469849816",
+    "userProfileId":1
+}

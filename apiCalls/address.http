@@ -3,6 +3,16 @@ post http://localhost:8080/api/address/createAddress
 Content-Type: application/json
 
 {
-    "address":"sindh",
+    "address":"lahore",
     "userProfileId":1
+}
+
+###
+# update address with address Id
+PATCH  http://localhost:8080/api/address/updateAddress
+Content-Type: application/json
+
+{
+    "address":"sindhiiii",
+    "addressId":4
 }

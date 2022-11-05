@@ -18,5 +18,25 @@ Content-Type: application/json
 }
 
 ###
+# create user Profile 
+PATCH  http://localhost:8080/api/userProfile/updateProfile
+Content-Type: application/json
+
+{
+    "title":"saad1111",
+    "company":"cognilium",
+    "timezone" : "PST",
+    "SSN" : "164165-5245-65541",
+    "TIN" : "164165-5245-65541",
+    "birth_date" : "1999-28-12",
+    "license_types" : "license_types",
+    "broker_dealer" : "broker dealer",
+    "relationship_manager": "relationship_manager",
+    "payment_plan" : "payment_plan",
+    "comp_level": "comp_level",
+    "subdomain": "subdomain"
+}
+
+###
 # get user profile
 GET http://localhost:8080/api/userProfile/getProfile

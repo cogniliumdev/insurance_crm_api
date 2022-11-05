@@ -23,7 +23,7 @@ const getUserProfile = async (req, res) => {
                 // userId: req.userId
                 userId: 1
             },
-            include:["phones", "emails","socials", "addresses"]
+            include:["phones", "emails","socials", "addresses", "websites"]
         })
         if (!profile) {
             return res.status(500).json({ errorMsg: "Server Error" });
@@ -41,7 +41,7 @@ const updateUserProfile = async (req, res) => {
         await UserProfile.update(req.body, {
             where: {
                 // userId: req.userId
-                userId: 2
+                userId: 1
             }
         });
         return res.status(200).json({ successMsg: "profile updated successfully" });

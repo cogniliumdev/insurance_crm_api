@@ -28,10 +28,10 @@ const updateSocial = async (req, res) => {
         await Social.update(
             { social: social },
             { where: { id: socialId } }
-        )
+        );
         return res.status(200).json({ successMsg: "social updated" });
     } catch (err) {
-        console.log(err)
+        console.log(err);
         return res.status(500).json({ errorMsg: "Server Error" });
     }
 };

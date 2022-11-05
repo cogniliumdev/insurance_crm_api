@@ -22,12 +22,13 @@ const createAddress = async (req, res) => {
 
 const updateAddress = async (req, res) => {
     try {
+        console.log(req.body);
         const { address, addressId } = req.body;
         if (!address || address.trim().length <= 0) {
             return res.status(400).json({ errorMsg: "must provide address" });
         }
         await Address.update(
-            { phone: phone },
+            { address: address },
             { where: { id: addressId } }
         )
         return res.status(200).json({ successMsg: "Address updated" });
