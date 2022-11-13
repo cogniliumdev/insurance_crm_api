@@ -6,7 +6,7 @@ const createAssistant = async (req, res) => {
         await Assistant.create({
             ...req.body,
             // userId: req.userId
-            userId: 2
+            userId: 1
         });
         return res.status(201).json({ successMsg: "Assistant created" });
 
@@ -20,8 +20,8 @@ const getAssistant = async (req, res) => {
     try {
         const assistant = await Assistant.findOne({
             where: {
-                // userId: req.userId
-                userId: 2
+                userId: req.userId
+                // userId: 1
             },
         })
         if (!assistant) {
@@ -37,10 +37,15 @@ const getAssistant = async (req, res) => {
 
 const updateAssistant = async (req, res) => {
     try {
-        await Assistant.update(req.body, {
+        await Assistant.update(
+            {
+                name: req.body?.assistantName,
+                phone: req.body?.assistantPhone,
+                email: req.body?.assistantEmail,
+            }, {
             where: {
-                // userId: req.userId
-                userId: 2
+                userId: req.userId
+                // userId: 1
             }
         });
         return res.status(200).json({ successMsg: "assistant updated successfully" });

@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###
-# create user Profile 
+# update user Profile 
 PATCH  http://localhost:8080/api/userProfile/updateProfile
 Content-Type: application/json
 

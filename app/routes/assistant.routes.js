@@ -1,10 +1,11 @@
-const express =  require("express");
+const express = require("express");
+const { authJwt } = require("../middleware");
 const assistantController = require("../controllers/assistant.controller.js");
-const router =  express.Router();
+const router = express.Router();
 
-router.post("/createAssistant", assistantController.createAssistant );
-router.get("/getAssistant", assistantController.getAssistant );
-router.patch("/updateAssistant", assistantController.updateAssistant );
+router.post("/createAssistant", [authJwt.verifyToken], assistantController.createAssistant);
+router.get("/getAssistant", [authJwt.verifyToken], assistantController.getAssistant);
+router.patch("/updateAssistant", [authJwt.verifyToken], assistantController.updateAssistant);
 
 module.exports = router;
 
