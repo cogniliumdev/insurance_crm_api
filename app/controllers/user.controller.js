@@ -17,25 +17,6 @@ exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
 
-exports.getUserProfile = async (req, res) => {
-  try {
-    const profile = await UserProfile.findOne({
-      where: {
-        // userId: req.userId
-        userId: 2
-      },
-      include: ["phones", "emails", "socials", "addresses"]
-    });
-    if (!profile) {
-      return res.status(500).json({ errorMsg: "No profile found" });
-    }
-    return res.status(200).send(profile);
-
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ errorMsg: "Server Error" });
-  }
-};
 
 
 

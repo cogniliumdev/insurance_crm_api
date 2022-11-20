@@ -8,6 +8,8 @@ post http://localhost:8080/api/consumer/createConsumer
 Content-Type: application/json
 
 {
+    "title":"consumer 9",
+    "primaryEmail": "saad9@gamil.com",
     "last_contact": "1999",
     "tracking_data":"tracking_data",
     "brand" :"brnd",
@@ -15,7 +17,8 @@ Content-Type: application/json
     "referrer": "referrer",
     "source": "source",
     "ip_address": "ip_address",
-    "quoter_url": "quoter_url"
+    "quoter_url": "quoter_url",
+    "tags":["ss","ss","ss","ss"]
 }
 
 
@@ -38,5 +41,5 @@ Content-Type: application/json
 
 ###
 # delete consumer with consumer id 
-DELETE  http://localhost:8080/api/consumer/deleteConsumer/2
+DELETE  http://localhost:8080/api/consumer/deleteConsumer/31
 Content-Type: application/json
