@@ -1,6 +1,9 @@
 # get all consumers 
 GET http://localhost:8080/api/consumer/getAllConsumer
+###
 
+# get single consumers by consumerId 
+GET http://localhost:8080/api/consumer/getSingleConsumer/2
 
 ###
 # create consumer 
@@ -8,8 +11,8 @@ post http://localhost:8080/api/consumer/createConsumer
 Content-Type: application/json
 
 {
-    "title":"consumer 9",
-    "primaryEmail": "saad9@gamil.com",
+    "title":"saad 1",
+    "primaryEmail": "saad1@gamil.com",
     "last_contact": "1999",
     "tracking_data":"tracking_data",
     "brand" :"brnd",

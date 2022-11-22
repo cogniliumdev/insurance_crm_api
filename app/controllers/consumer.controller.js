@@ -63,9 +63,24 @@ const getAllConsumer = async (req, res) => {
             },
             include: ["consumertags"]
         });
-
         return res.status(200).send(consumers);
 
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ errorMsg: "Server Error" });
+    }
+}
+
+const getSingleConsumer = async (req, res) => {
+    try {
+        const consumerId = req.params.id
+        const consumer = await Consumer.findOne({
+            where: {
+                id: consumerId
+            },
+            include: ["consumertags"]
+        });
+        return res.status(200).send(consumer);
     } catch (err) {
         console.log(err);
         return res.status(500).json({ errorMsg: "Server Error" });
@@ -75,12 +90,45 @@ const getAllConsumer = async (req, res) => {
 
 const updateConsumer = async (req, res) => {
     try {
-        await Consumer.update(req.body, {
-            where: {
-                // userId: req.userId
-                userId: 1
+        console.log(req.body);
+        const { consumerId, title, birthDate, gender, heightWeight, tobacco, SSN, driversLicNo, driversLicState, citizenShip, countryBorn, stateBorn, martialStatus, spouse, entityType, primaryContact, contactMethod, contactTime, primaryPhone, primaryEmail, homePrimaryAddress, occupation, employer, createDate, lastContact, brand, leadType, tags, quoterURL, ipAddress, source, referrer, } = req.body;
+
+        await Consumer.update(
+            {
+                title: title,
+                birth_date: birthDate,
+                gender: gender,
+                height_weight: heightWeight,
+                tobacco: tobacco,
+                SSN: SSN,
+                drivers_lic: driversLicNo,
+                drivers_lic_state: driversLicState,
+                citizenship: citizenShip,
+                country_born: countryBorn,
+                state_born: stateBorn,
+                marital_status: martialStatus,
+                spouse: spouse,
+                entity_type: entityType,
+                primary_contact: primaryContact,
+                contact_method: contactMethod,
+                contact_time: contactTime,
+                primary_phone: primaryPhone,
+                primary_email: primaryEmail,
+                home_primary_address: homePrimaryAddress,
+                occupation: occupation,
+                employer: employer,
+                last_contact: lastContact,
+                brand: brand,
+                lead_type: leadType,
+                referrer: referrer,
+                source: source,
+                ip_address: ipAddress,
+                quoter_url: quoterURL,
+            },
+            {
+                where: { id: consumerId }
             }
-        });
+        );
         return res.status(200).json({ successMsg: "Consumer updated" });
     } catch (err) {
         console.log(err);
@@ -116,5 +164,6 @@ module.exports = {
     createConsumer,
     updateConsumer,
     deleteConsumer,
-    getAllConsumer
+    getAllConsumer,
+    getSingleConsumer
 };
