@@ -10,8 +10,8 @@ const createConsumer = async (req, res) => {
 
         await Consumer.create(
             {
-                // userId: req.userId
-                userId: 1,
+                // userId: 1,
+                userId: req.userId,
                 title: title,
                 birth_date: birthDate,
                 gender: gender,
@@ -58,8 +58,8 @@ const getAllConsumer = async (req, res) => {
     try {
         const consumers = await Consumer.findAll({
             where: {
-                // userId: req.userId
-                userId: 1
+                userId: req.userId
+                // userId: 1
             },
             include: ["consumertags"]
         });
@@ -90,7 +90,6 @@ const getSingleConsumer = async (req, res) => {
 
 const updateConsumer = async (req, res) => {
     try {
-        console.log(req.body);
         const { consumerId, title, birthDate, gender, heightWeight, tobacco, SSN, driversLicNo, driversLicState, citizenShip, countryBorn, stateBorn, martialStatus, spouse, entityType, primaryContact, contactMethod, contactTime, primaryPhone, primaryEmail, homePrimaryAddress, occupation, employer, createDate, lastContact, brand, leadType, tags, quoterURL, ipAddress, source, referrer, } = req.body;
 
         await Consumer.update(

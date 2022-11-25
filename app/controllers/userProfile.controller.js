@@ -6,11 +6,11 @@ const Assistant = db.assistant;
 const createUserProfile = async (req, res) => {
     try {
         console.log(req.body)
-        const socialsList = req.body.socials.map((social) => ({ social: social }));
-        const phonesList = req.body.phones.map((phone) => ({ phone: phone }));
-        const emailsList = req.body.emails.map((email) => ({ email: email }));
-        const addressesList = req.body.addresses.map((address) => ({ address: address }));
-        const websitesList = req.body.websites.map((website) => ({ website: website }));
+        const socialsList = req.body?.socials?.map((social) => ({ social: social }));
+        const phonesList = req.body?.phones?.map((phone) => ({ phone: phone }));
+        const emailsList = req.body?.emails?.map((email) => ({ email: email }));
+        const addressesList = req.body?.addresses?.map((address) => ({ address: address }));
+        const websitesList = req.body?.websites?.map((website) => ({ website: website }));
 
         await UserProfile.create(
             {
