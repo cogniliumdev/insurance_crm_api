@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "localhost",
+  HOST: "mysqldb.cmjlh63242ln.us-east-2.rds.amazonaws.com", //"localhost",
   USER: "root",
-  PASSWORD: null,
-  DB: "testdb",
+  PASSWORD: "pakistan123", // null,
+  DB: "insure_io_db", //"testdb",
   dialect: "mysql",
   pool: {
     max: 5,
